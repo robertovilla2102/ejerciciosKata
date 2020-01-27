@@ -29,3 +29,19 @@ function infected(n){
   
       return resu
   }
+
+  // Disemvowel Trolls
+  function disemvowel(str) {
+    let arr = str.split('')
+    let vocales = ['a', 'e', 'i', 'o', 'u']
+
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < vocales.length; j++) {
+        if(arr[i].toLowerCase() == vocales[j]){
+          arr.splice(i, 1)
+          i--
+        }
+      }
+    }
+    return arr.join('')
+  }

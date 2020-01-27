@@ -85,4 +85,20 @@ function createPhoneNumber(numbers){
   let pepe = numbers.join('')
   return '(' + pepe[0] + pepe[1] + pepe[2] + ') ' + pepe[3] + pepe[4] + pepe[5] + '-' + pepe[6] + pepe[7] + pepe[8] + pepe[9]
 }
-Test.assertEquals(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
+
+//
+function maxProduct(numbers, size){
+  let resu = 1
+  let pepe = 1
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j=i+1; j < numbers.length; j++) {
+      pepe = numbers[i]* numbers[j]
+      if(pepe > resu){resu = pepe}
+    }
+  }
+
+  return resu
+}
+
+[4,3,5], 2, 20
