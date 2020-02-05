@@ -98,4 +98,9 @@ function lottery(str) {
   return "One more run!"
 }
 
-
+//Remove duplicate words
+function removeDuplicateWords(s) {
+  let str = s.split(' ')
+  const pepe = [...new Set(str)]
+  return pepe.join(' ')
+}

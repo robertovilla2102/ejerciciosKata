@@ -119,3 +119,20 @@ function partsSums(ls, final = [], parcial = 0) {
 function add(x, y) {
   return x + y
 }
+
+//Are they the "same"?
+function comp(array1, array2) {
+  if (array1 === null && array2 === null) return true
+
+  let final = array1.map((e) => { return e * e })
+
+  let p = final.sort((a, b) => { return a - b })
+  let q = array2.sort((a, b) => { return a - b })
+
+  for (let i = 0; i < p.length; i++) {
+    if (p[i] !== q[i]) { return false }
+  }
+
+  return true
+
+}
