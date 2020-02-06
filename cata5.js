@@ -1,4 +1,4 @@
-/* // kata5 Regex Password Validation
+// kata5 Regex Password Validation
 function validate(password) {
     let mayus = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     let minus = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -60,16 +60,12 @@ function validParentheses(parens) {
     }
 
     return n == 0;
-} */
+}
 
-//Interleaving Arrays
+//Interleaving Arrays -- pwndinete
 function interleave() {
     let args = [...arguments]
     let resu = []
     console.log(args)
 
-
-
-}
-/* assert.deepEqual(interleave([1, 2, 3], ["c", "d", "e"]), [1, "c", 2, "d", 3, "e"]); */
-interleave([1, 2, 3], ["c", "d", "e"]), [1, "c", 2, "d", 3, "e"]
+} 

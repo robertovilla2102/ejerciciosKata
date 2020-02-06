@@ -5,35 +5,28 @@ function calculateDamage(yourType, opponentType, attack, defense) {
       if (ot === 'water') return 0.5
       if (ot === 'electric') return 1
       if (ot === 'fire') return 0.5
-
     },
-
     grass: (ot) => {
       if (ot === 'fire') return 0.5
       if (ot === 'water') return 2
       if (ot === 'electric') return 1
       if (ot === 'grass') return 0.5
-
     },
-
     electric: (ot) => {
       if (ot === 'fire') return 1
       if (ot === 'water') return 2
       if (ot === 'grass') return 1
       if (ot === 'electric') return 0.5
     },
-
     water: (ot) => {
       if (ot === 'fire') return 2
       if (ot === 'grass') return 0.5
       if (ot === 'electric') return 0.5
       if (ot === 'water') return 0.5
     }
-
   }
 
   let efec = types[yourType](opponentType)
-
   let damage = (50 * attack / defense) * efec
   return damage
 }
@@ -48,7 +41,6 @@ function parse(data) {
     if (data[i] === 's') (resu = resu * resu)
     if (data[i] === 'o') (arrFinal.push(resu))
   }
-
   return arrFinal
 }
 
@@ -56,28 +48,22 @@ function parse(data) {
 function array_diff(a, b) {
   let arr = []
   if (b = []) { return a }
-
   for (let i = 0; i < a.length; i++) {
     if (a[i] === b[i]) { a.slice() }
-
   }
   return arr
 }
 
-
 function blocks(s) {
   let p = s.split('')
   p.sort()
-
   for (let i = 0; i < p.length; p++) {
     if (p[i] === p[i + 1] && p[i + 1] != undefined) {
       let eliminado = p[i].shift()
       p.push(eliminado)
     }
   }
-
   return p
-
 }
 
 //Create Phone Number 
@@ -90,7 +76,6 @@ function createPhoneNumber(numbers) {
 function maxProduct(numbers, size) {
   let resu = 1
   let pepe = 1
-
   for (let i = 0; i < numbers.length; i++) {
     for (let j = i + 1; j < numbers.length; j++) {
       pepe = numbers[i] * numbers[j]
@@ -103,17 +88,13 @@ function maxProduct(numbers, size) {
 // sums of parts
 function partsSums(ls, final = [], parcial = 0) {
   if (ls.length === 0) { return final }
-
   for (let i = 0; i < ls.length; i++) {
     parcial += ls[i]
   }
-
   ls.shift()
   final.push(parcial)
-
   return partsSums(ls, final, parcial)
 }
-
 
 //Sum of Two Integers
 function add(x, y) {
@@ -123,16 +104,11 @@ function add(x, y) {
 //Are they the "same"?
 function comp(array1, array2) {
   if (array1 === null && array2 === null) return true
-
   let final = array1.map((e) => { return e * e })
-
   let p = final.sort((a, b) => { return a - b })
   let q = array2.sort((a, b) => { return a - b })
-
   for (let i = 0; i < p.length; i++) {
     if (p[i] !== q[i]) { return false }
   }
-
   return true
-
 }

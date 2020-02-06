@@ -18,15 +18,14 @@ function infected(n) {
       }
     }
   }
+
   arr2 = arr2.join('')
 
   for (let i = 0; i < arr2.length; i++) {
     if (arr2[i] === '1') { infecetados++ }
   }
-
   let resu = 100 * infecetados / arr2.length
   resu = parseFloat(resu)
-
   return resu
 }
 
@@ -34,7 +33,6 @@ function infected(n) {
 function disemvowel(str) {
   let arr = str.split('')
   let vocales = ['a', 'e', 'i', 'o', 'u']
-
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < vocales.length; j++) {
       if (arr[i].toLowerCase() == vocales[j]) {
@@ -72,16 +70,11 @@ function balancedNum(number) {
     resuB += parseInt(nB[i])
   }
 
-  console.log(number)
-  console.log(resuA, resuB)
-
   if (resuA == resuB) { return "Balanced" }
-
   return "Not Balanced"
 }
 
-// Your task is to write an update for a lottery machine. Its current version produces a sequence of random letters and integers (passed as a string to the function). Your code must filter out all letters and return unique integers as a string, in their order of first appearance. If there are no integers in the string return "One more run!"
-
+// Your task is to write an update for a lottery machine. 
 function lottery(str) {
   let resu = []
   let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
@@ -103,4 +96,48 @@ function removeDuplicateWords(s) {
   let str = s.split(' ')
   const pepe = [...new Set(str)]
   return pepe.join(' ')
+}
+
+//Sort Out The Men From Boys
+function menFromBoys(arr) {
+  let arr = [...new Set(arr)]
+  let pares = []
+  let impares = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) { pares.push(arr[i]) }
+    else { impares.push(arr[i]) }
+  }
+
+  pares.sort((a, b) => { return a - b })
+  impares.sort((a, b) => { return a - b }).reverse()
+  return pares.concat(impares)
+}
+
+//Scrabble Score
+function scrabbleScore(str) {
+  let p = str.split(' ').join('')
+  let resu = 0
+  for (let i = 0; i < p.length; i++) {
+    resu += $dict[p[i].toUpperCase()]
+  }
+  return resu
+}
+
+//Help Bob count letters and digits.
+function countLettersAndDigits(input) {
+  let num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+  let minus = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+  let cont = 0
+  let arr = input.split('')
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < minus.length; j++) {
+      if (input[i] == num[j] || (input[i]).toLowerCase() == minus[j]) {
+        cont++
+      }
+    }
+  }
+  return cont
 }
