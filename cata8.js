@@ -13,6 +13,9 @@ function superSize(num) {
 }
 
 //Grasshopper - Check for factor
-function checkForFactor (base, factor) {
+function checkForFactor(base, factor) {
   return base % factor === 0 ? true : false
 }
+
+//Grasshopper - Messi goals function
+const goals = (...a) => a.reduce((s, v) => s + v, 0)

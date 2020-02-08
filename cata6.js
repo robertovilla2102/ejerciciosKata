@@ -112,3 +112,5 @@ function comp(array1, array2) {
   }
   return true
 }
+
+//Mexican Wave

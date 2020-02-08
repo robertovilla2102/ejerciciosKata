@@ -69,3 +69,20 @@ function interleave() {
     console.log(args)
 
 } 
+
+//Mean Square Error
+var solution = function(firstArray, secondArray) {
+    let resu = []  
+
+    for (let i = 0; i < firstArray.length; i++) {
+        if(firstArray[i] != secondArray[i]){
+            resu.push(Math.pow(secondArray[i] - firstArray[i],2))
+        }
+        else{
+            resu.push(1)
+        }
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const largo = resu.length
+    return resu.reduce(reducer)/largo
+}

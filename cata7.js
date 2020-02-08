@@ -143,11 +143,20 @@ function countLettersAndDigits(input) {
 }
 
 //No oddities here
-function noOdds( values ){
+function noOdds(values) {
   // con un filter tambien se hacia en un toque jaja
   let resu = []
   for (let i = 0; i < values.length; i++) {
-    if(values[i] % 2 == 0) {resu.push(values[i])}
+    if (values[i] % 2 == 0) { resu.push(values[i]) }
   }
   return resu
+}
+
+//Count the divisors of a number
+function getDivisorsCnt(n) {
+  let resu = []
+  for (let i = 0; i < n; i++) {
+    if (n % i == 0) { resu.push(i) }
+  }
+  return resu.length
 }
