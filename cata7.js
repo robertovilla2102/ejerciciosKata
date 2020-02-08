@@ -141,3 +141,13 @@ function countLettersAndDigits(input) {
   }
   return cont
 }
+
+//No oddities here
+function noOdds( values ){
+  // con un filter tambien se hacia en un toque jaja
+  let resu = []
+  for (let i = 0; i < values.length; i++) {
+    if(values[i] % 2 == 0) {resu.push(values[i])}
+  }
+  return resu
+}
