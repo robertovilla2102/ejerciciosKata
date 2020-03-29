@@ -1,4 +1,4 @@
-// kata5 Regex Password Validation
+//* kata5 Regex Password Validation
 function validate(password) {
     let mayus = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     let minus = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -32,7 +32,7 @@ function validate(password) {
     return false
 }
 
-//Human Readable Time
+//TODO Human Readable Time
 function humanReadable(seconds) {
     var h = Math.floor(seconds / 3600);
     var m = Math.floor((seconds % 3600) / 60);
@@ -68,21 +68,93 @@ function interleave() {
     let resu = []
     console.log(args)
 
-} 
+}
 
 //Mean Square Error
-var solution = function(firstArray, secondArray) {
-    let resu = []  
+var solution = function (firstArray, secondArray) {
+    let resu = []
 
     for (let i = 0; i < firstArray.length; i++) {
-        if(firstArray[i] != secondArray[i]){
-            resu.push(Math.pow(secondArray[i] - firstArray[i],2))
+        if (firstArray[i] != secondArray[i]) {
+            resu.push(Math.pow(secondArray[i] - firstArray[i], 2))
         }
-        else{
+        else {
             resu.push(1)
         }
     }
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     const largo = resu.length
-    return resu.reduce(reducer)/largo
+    return resu.reduce(reducer) / largo
 }
+
+//ROT13
+function rot13(str) {
+    let resu = []
+    let cont = 0
+
+    let mayus = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+    let rot = ['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
+
+    for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < mayus.length; j++) {
+            if (str[i] == mayus[j]) {
+                cont++
+                resu.push(rot[j])
+                break
+            } else if (str[i] == mayus[j].toLowerCase()) {
+                cont++
+                resu.push(rot[j].toLowerCase())
+            }
+        }
+        if (cont == 0) { resu.push(str[i]) }
+        cont = 0
+    }
+
+    return resu.join('')
+}
+
+//Josephus Permutation
+function josephus(items, k) {
+    let n = items[items.length - 1]
+    let queue = []
+    let deathOrder = []
+
+    for (let i = 1; i <= n; i++) {
+        queue.push(i)
+    }
+
+    while (queue.length !== 1) {
+        for (let skip = 1; skip < k; skip++) {
+            queue.push(queue.shift());
+        }
+
+        deathOrder.push(queue.shift());
+    }
+    deathOrder.push(queue[0])
+    return deathOrder
+}
+
+//Detect Pangram
+function isPangram(string) {
+    let arr = string.split(' ').join('').toLowerCase()
+    let minus = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+    for (let i = 0; i < minus.length; i++) {
+        if (!arr.includes(minus[i])) return false
+    }
+
+    return true
+}
+
+//Bob's reversing obfuscator
+    /* function decoder(encoded, marker) {
+        let num = encoded.indexOf(`${marker}`)
+        let principio = encoded.slice(0, num)
+        let final = encoded.slice(num).split('').reverse().join('')
+        let resu = final.slice()
+
+
+
+        return `${principio}${final}
+    } */

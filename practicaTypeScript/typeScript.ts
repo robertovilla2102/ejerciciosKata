@@ -1,4 +1,4 @@
-const saludar = (name) => {
+const saludar = (name: string) => {
     return `Buen dia ${name}`
 }
 

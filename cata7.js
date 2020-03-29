@@ -160,3 +160,37 @@ function getDivisorsCnt(n) {
   }
   return resu.length
 }
+
+//Extra Perfect Numbers (Special Numbers Series #7)
+function extraPerfect(n) {
+  let resu = []
+  for (let i = 0; i <= n; i++) {
+    if (i % 2 != 0) {
+      resu.push(i)
+    }
+  }
+  return resu
+}
+
+//Two Oldest Ages
+function twoOldestAges(ages) {
+  function compareNumbers(a, b) {
+    return a - b;
+  }
+
+  const oldAges = ages.sort(function (a, b) {
+    return a - b;
+  });
+
+  return [oldAges[0], oldAges[1]]
+}
+
+//it is even?
+function testEven(n) {
+  return n % 2 === 0
+}
+
+//Number of Decimal Digits
+function digits(n) {
+  return String(n).length
+}

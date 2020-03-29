@@ -32,7 +32,7 @@ function calculateDamage(yourType, opponentType, attack, defense) {
 }
 
 
-function parse(data) {
+const parse = (data) => {
   let arrFinal = []
   let resu = 0
   for (let i = 0; i < data.length; i++) {
@@ -113,4 +113,69 @@ function comp(array1, array2) {
   return true
 }
 
-//Mexican Wave
+
+//Persistent Bugger.
+function persistence(num, resu = 0) {
+  num = num.toString().split('')
+  if (num.length <= 1) return resu
+
+  num = num.reduce((a, b) => {
+    return a.toString() * b.toString()
+  })
+  resu++
+
+  return persistence(num, resu)
+}
+
+//More Zeros than Ones
+function moreZeros(s) {
+  let resu = []
+  let arr = s.split('')
+
+  for (let i = 0; i < arr.length; i++) {
+    let provisional = arr[i].charCodeAt(0).toString(2).split('')
+    let a = 0
+    let b = 0
+    for (let j = 0; j < provisional.length; j++) {
+      if (provisional[j] === '1') {
+        a++
+      } else {
+        b++
+      }
+    }
+
+    if (b > a) {
+      resu.push(arr[i])
+    }
+  }
+
+  let resufinal = [...new Set(resu)]
+  return resufinal
+}
+
+
+//Delete occurrences of an element if it occurs more than n times
+function deleteNth(arr, n) {
+  let resu = []
+  for (let i = 0; i < arr.length; i++) {
+    if (resu.includes(arr[i])) {
+      n--
+    }
+    resu.push(arr[i])
+
+    if (n < 0) {
+      break
+    }
+  }
+  return resu
+}
+
+//Array.diff
+const arrayDiff = (a, b) => {
+  let resu = []
+  a.map(a => {
+    if (!b.includes(a)) resu.push(a)
+  })
+
+  return resu
+}
