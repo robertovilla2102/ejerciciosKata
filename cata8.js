@@ -28,3 +28,21 @@ function strCount(str, letter) {
   }
   return count
 }
+
+//Expressions Matter
+function expressionMatter(a, b, c) {
+  let first = a * (b + c)
+  let two = a * b * c
+  let tres = a + (b * c)
+  let cuatro = (a + b) * c
+  let cinco = (a * b) + c
+  let seis = a + b + c
+
+  return Math.max(first, two, tres, cuatro, cinco, seis)
+}
+
+//Beginner Series #1 School Paperwork
+function paperwork(n, m) {
+  if (n < 1 || m < 1) return 0
+  return n * m
+}

@@ -87,3 +87,51 @@ const ejercicio2 = (arr) => {
 
     return max
 }
+
+//reacto 30/03
+/*
+{()[]} verdadero
+{}([)] falso
+{([(){}])} verdadero
+({}{()}[) falso
+{]({(){}[]}) falso
+*/
+const buscador = (string) => {
+    let parents = { '{': '}', '[': ']', '(': ')' }
+    let arr = []
+    for (let i = 0; i < string.length; i++) {
+        if (Object.keys(parents).includes(string[i])) arr.push(string[i])
+        else if (parents[arr.pop()] != string[i]) return false
+    }
+
+    return true
+}
+
+
+/**
+Escribe una función que determine si una conexion existe entre dos vertices de un graph. El graph sera representado como un
+objeto, cada key representa un vértice y el valor todos los vertices que pueden ser alcanzados.
+*/
+
+const graph = {
+    a: ['c'],
+    b: ['c'],
+    c: ['s', 'r'],
+    d: ['a'],
+    s: ['a', 'c'],
+    r: ['d'],
+    z: ['z']
+};
+
+const searchPath = (graph, start, end, help = {}) => {
+    if (help[start]) return false
+    help[start] = true
+
+    for (let i = 0; i < graph[start].length; i++) {
+        if (end === graph[start][i]) return true
+        else if (searchPath(graph, graph[start][i], end, help)) return true
+    }
+
+    return false
+}
+/* searchPath(graph, 'c', 'z') */

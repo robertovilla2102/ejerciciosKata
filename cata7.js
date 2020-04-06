@@ -194,3 +194,23 @@ function testEven(n) {
 function digits(n) {
   return String(n).length
 }
+
+//Integer Difference
+const intDiff = (arr, n) => {
+  let resu = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (Math.abs(arr[i] - arr[j]) === n) resu++
+    }
+  }
+  return resu
+}
+
+//Find all occurrences of an element in an array
+const findAll = (array, n) => {
+  let resu = []
+  array.map((a, i) => a == n ? resu.push(i) : null)
+
+  return resu
+}

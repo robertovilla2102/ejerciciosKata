@@ -179,3 +179,27 @@ const arrayDiff = (a, b) => {
 
   return resu
 }
+
+//Basics 08: Find next higher number with same Bits (1's)
+function nextHigher(n) {
+  let binary = (n).toString(2)
+  let resu = parseInt(binary, 2)
+
+  const permutation = (current = '', str, response = []) => {
+    const n = str.length
+    if (!str.length && !response.includes(current)) { response.push(current) }
+    for (let i = 0; i < n; i++) {
+      permutation(current + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n), response);
+    }
+    return response
+  }
+
+  const arr = permutation('', binary)
+  console.log(arr);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (parseInt(arr[i], 2) >= resu) resu = parseInt(arr[i], 2)
+  }
+  return resu
+}
+
