@@ -54,6 +54,7 @@ function array_diff(a, b) {
   return arr
 }
 
+
 function blocks(s) {
   let p = s.split('')
   p.sort()
@@ -66,11 +67,13 @@ function blocks(s) {
   return p
 }
 
+
 //Create Phone Number 
 function createPhoneNumber(numbers) {
   let pepe = numbers.join('')
   return '(' + pepe[0] + pepe[1] + pepe[2] + ') ' + pepe[3] + pepe[4] + pepe[5] + '-' + pepe[6] + pepe[7] + pepe[8] + pepe[9]
 }
+
 
 //
 function maxProduct(numbers, size) {
@@ -85,6 +88,7 @@ function maxProduct(numbers, size) {
   return resu
 }
 
+
 // sums of parts
 function partsSums(ls, final = [], parcial = 0) {
   if (ls.length === 0) { return final }
@@ -96,10 +100,12 @@ function partsSums(ls, final = [], parcial = 0) {
   return partsSums(ls, final, parcial)
 }
 
+
 //Sum of Two Integers
 function add(x, y) {
   return x + y
 }
+
 
 //Are they the "same"?
 function comp(array1, array2) {
@@ -203,3 +209,28 @@ function nextHigher(n) {
   return resu
 }
 
+//Sum of Digits / Digital Root
+const digital_root = (n) => {
+  if (n < 10) return n
+  let arr = n.toString().split('')
+  n = arr.reduce((a, b) => parseInt(a) + parseInt(b))
+  return digital_root(n)
+
+  //**************** forma copada de codewars *************************/
+  const digital_root = (n) => (n - 1) % 9 + 1
+  //******************************************************************* */
+}
+
+//Break camelCase
+const solution = (string) => {
+  let resu = ''
+  let mayus = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  for (let i = 0; i < string.length; i++) {
+    if (mayus.includes(string[i])) resu += ` ${string[i]}`
+    else { resu += string[i] }
+  }
+  return resu
+  //**************** forma copada de codewars *************************/
+  function solution(string) { return (string.replace(/([A-Z])/g, ' $1')) }
+  //******************************************************************* */
+}

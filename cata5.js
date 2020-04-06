@@ -71,7 +71,7 @@ function interleave() {
 }
 
 //Mean Square Error
-var solution = function (firstArray, secondArray) {
+const solution = function (firstArray, secondArray) {
     let resu = []
 
     for (let i = 0; i < firstArray.length; i++) {
@@ -147,14 +147,52 @@ function isPangram(string) {
     return true
 }
 
-//Bob's reversing obfuscator
-    /* function decoder(encoded, marker) {
-        let num = encoded.indexOf(`${marker}`)
-        let principio = encoded.slice(0, num)
-        let final = encoded.slice(num).split('').reverse().join('')
-        let resu = final.slice()
+//Rot13
+function rot13(message) {
+    let resu = ''
+    let obj = {
+        'a': 'n',
+        'b': 'o',
+        'c': 'p',
+        'd': 'q',
+        'e': 'r',
+        'f': 's',
+        'g': 't',
+        'h': 'u',
+        'i': 'v',
+        'j': 'w',
+        'k': 'x',
+        'l': 'y',
+        'm': 'z',
+        'n': 'a',
+        'o': 'b',
+        'p': 'c',
+        'q': 'd',
+        'r': 'e',
+        's': 'f',
+        't': 'g',
+        'u': 'h',
+        'v': 'i',
+        'w': 'j',
+        'x': 'k',
+        'y': 'l',
+        'z': 'm'
+    }
 
+    for (let i = 0; i < message.length; i++) {
+        if (obj[message[i]]) resu += obj[message[i]]
+        else if (!obj[message[i]] && obj[message[i].toLowerCase()]) resu += obj[message[i].toLowerCase()].toUpperCase()
+        else { resu += message[i] }
+    }
 
+    return resu
 
-        return `${principio}${final}
-    } */
+    //**************************** forma copada de codewars ***************************** */
+    function rot13(message) {
+        var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+        return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+    }
+    //********************************************************* */
+}
+

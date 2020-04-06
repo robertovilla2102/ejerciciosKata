@@ -214,3 +214,16 @@ const findAll = (array, n) => {
 
   return resu
 }
+
+//Computer problem series #1: Fill the Hard Disk Drive
+function save(sizes, hd) {
+  let resu = 0
+  let count = 0
+  for (let i = 0; i < sizes.length; i++) {
+    resu += sizes[i]
+    if (resu > hd) return i
+    count++
+  }
+
+  return count
+}

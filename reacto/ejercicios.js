@@ -1,5 +1,4 @@
 // Ejercicio REACTO : https://repl.it/@guilleasz/findNeedle
-
 const encontar = (palabra, otra) => {
     const existe = palabra.includes(otra)
     if (!existe) return -1
@@ -11,7 +10,6 @@ const encontar = (palabra, otra) => {
         }
     }
 }
-
 const findNeedle = (haystack, needle) => {
     // iteramos sobre el haystack
     for (let haystackIndex = 0; haystackIndex < haystack.length; haystackIndex += 1) {
@@ -28,6 +26,7 @@ const findNeedle = (haystack, needle) => {
     return -1;
 }
 
+
 //sumArray
 //* https://repl.it/@guilleasz/sumArray
 const sumArray = (arr, n) => {
@@ -40,7 +39,6 @@ const sumArray = (arr, n) => {
 
     return false
 }
-
 const sumArray2 = (arr, n) => {
     let start = 0
     let end = arr.length - 1
@@ -55,12 +53,12 @@ const sumArray2 = (arr, n) => {
     return false
 }
 
+
 //ejercicio 3 REACTO
 /* 
 const stack = [50, 48, 20, 30]
 const stack = [2, 48, 20, 100]
 const resu = -2 */
-
 const ejercicio = (arr) => {
     let resu = 0
     for (let i = 0; i < arr.length; i++) {
@@ -74,7 +72,6 @@ const ejercicio = (arr) => {
 
     return resu
 }
-
 const ejercicio2 = (arr) => {
     let max = arr[1] - arr[0]
     let min = arr[0]
@@ -87,6 +84,7 @@ const ejercicio2 = (arr) => {
 
     return max
 }
+
 
 //reacto 30/03
 /*
@@ -108,11 +106,9 @@ const buscador = (string) => {
 }
 
 
-/**
+/*
 Escribe una función que determine si una conexion existe entre dos vertices de un graph. El graph sera representado como un
-objeto, cada key representa un vértice y el valor todos los vertices que pueden ser alcanzados.
-*/
-
+objeto, cada key representa un vértice y el valor todos los vertices que pueden ser alcanzados.*/
 const graph = {
     a: ['c'],
     b: ['c'],
@@ -121,8 +117,7 @@ const graph = {
     s: ['a', 'c'],
     r: ['d'],
     z: ['z']
-};
-
+}
 const searchPath = (graph, start, end, help = {}) => {
     if (help[start]) return false
     help[start] = true
@@ -134,4 +129,50 @@ const searchPath = (graph, start, end, help = {}) => {
 
     return false
 }
-/* searchPath(graph, 'c', 'z') */
+
+
+// Ejercicio REACTO : https://repl.it/@guilleasz/findNeedle
+const encontar = (palabra, otra) => {
+    const existe = palabra.includes(otra)
+    if (!existe) return -1
+
+    for (let j = 0; j < palabra.length; j++) {
+        for (let i = 0; i < otra.length; i++) {
+            if (otra[i] !== palabra[j + i]) break
+            if (i + 1 === otra.length) return j;
+        }
+    }
+}
+const findNeedle = (haystack, needle) => {
+    // iteramos sobre el haystack
+    for (let haystackIndex = 0; haystackIndex < haystack.length; haystackIndex += 1) {
+        // comenzamos a iterar sobre el needle
+        for (let needleIndex = 0; needleIndex < needle.length; needleIndex += 1) {
+            // comparamos la letra del needle en la que estamos con la letra del haystack
+            // cuando no hay match cortamos de comparar el needle
+            if (haystack[haystackIndex + needleIndex] !== needle[needleIndex]) break;
+            // si terminamos de recorrer la needle devolvemos el haystackIndex
+            if (needleIndex + 1 === needle.length) return haystackIndex;
+        }
+    }
+    // una vez que termina el loop devolvemos -1
+    return -1;
+}
+
+
+//
+const decimalToBinary = (num) => {
+    let binary = '';
+    while (num) {
+        binary = num % 2 + binary;
+        num = Math.floor(num / 2);
+    }
+    return binary
+}
+
+const decimalToBinaryRec = (num) => {
+    if (num) {
+        return decimalToBinaryRec(Math.floor(num / 2)) + num % 2
+    }
+    return '';
+} 
