@@ -133,5 +133,21 @@ const searchPath = (graph, start, end, help = {}) => {
     }
 
     return false
+} /* searchPath(graph, 'c', 'z') */
+
+
+/**reacto */
+const newDate = (date, minutes) => {
+    let arr = date.split(':')
+    let hora = arr[0]
+    let minutos = arr[1]
+    let nuevosMinutos = minutes + parseInt(minutos)
+    let nuevaHora = parseInt(hora) + Math.floor(nuevosMinutos / 60)
+
+    nuevaHora != 12 ? nuevaHora = nuevaHora % 12 : nuevaHora
+    nuevosMinutos = nuevosMinutos % 60
+    nuevaHora < 10 ? nuevaHora = `0${nuevaHora}` : nuevaHora
+    nuevosMinutos < 10 ? nuevosMinutos = `0${nuevosMinutos}` : nuevosMinutos
+
+    return `${nuevaHora}:${nuevosMinutos}`
 }
-/* searchPath(graph, 'c', 'z') */
