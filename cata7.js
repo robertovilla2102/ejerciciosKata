@@ -227,3 +227,17 @@ function save(sizes, hd) {
 
   return count
 }
+
+//Responsible Drinking
+function hydrate(s) {
+  let arr = s.split('')
+  let minus = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', ',']
+  let resu = 0
+
+  arr.map(e => {
+    !minus.includes(e) ? resu += parseInt(e) : resu = resu
+  })
+
+  if (resu == 1) { return `${resu} glass of water` }
+  return `${resu} glasses of water`
+}

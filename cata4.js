@@ -20,11 +20,3 @@ function sumStrings(a, b) {
     return spillOver ? `1${sum}` : sum
 }
 
-//Polydivisible Numbers
-function isPolydivisible(s, b) {
-    //your code here
-}
-
-function getPolydivisible(n, b) {
-    //your code here
-}

@@ -175,4 +175,65 @@ const decimalToBinaryRec = (num) => {
         return decimalToBinaryRec(Math.floor(num / 2)) + num % 2
     }
     return '';
-} 
+}
+
+// reacto 13/04
+/*
+subSetSum(9, [2, 1, 6, 13, 10]) // true 2+1+6=9
+
+subSetSum(11, [2, 1, 8, 17, 11])  // true = 11 =11
+
+subSetSum(7, [2, 10, 8, 5, 11])  // true = 2+5 = 7
+
+Array = [1,3,5]
+
+Array.some(element => element === 5) // true
+
+Array.some(element => element%2 === 0)
+*/
+
+const subSetSum = (num, arr) => {
+    let help = [0]
+    for (let i = 0; i < arr.length; i++) {
+        let copy = help.slice()
+        for (let j = 0; j < copy.length; j++) {
+            if (copy[j] + arr[i] == num) return true
+            else if (copy[j] + arr[i] < num) help.push(copy[j] + arr[i])
+        }
+    }
+
+    return false
+}
+
+const subSetSum2 = (num, arr) => {
+    let help = [0]
+    return arr.some(ele => {
+        let copy = help.slice()
+        return copy.some(ayuda => {
+            if (ele + ayuda == num) return true
+            else if (ayuda + ele < num) help.push(ayuda + ele)
+        })
+    })
+}
+
+
+// reacto 14/04 - Funcion SpyOn
+const spyOn = (fn) => {
+    let callCount = 0
+    const calledWith = new Set()
+    const returns = new Set()
+
+    const spy = (...args) => {
+        callCount++
+        args.forEach(e => calledWith.add(e))
+        const result = fn(...args)
+        returns.add(result)
+        return result
+    }
+
+    spy.getCallCount = () => callCount
+    spy.wasCalledWith = (val) => calledWith.has(val)
+    spy.returned = (val) => returns.has(val)
+
+    return spy
+}

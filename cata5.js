@@ -196,3 +196,15 @@ function rot13(message) {
     //********************************************************* */
 }
 
+/* //What's a Perfect Power anyway?
+const isPP = (n, base = 1, exponente = 1) => {
+
+    for (let i = 0; i < n; i++) {
+        if (Math.pow(base, exponente) < n) { exponente++ }
+        else if (Math.pow(base, exponente) > n) { base++ }
+        else if (Math.pow(base, exponente) == n) break
+    }
+
+    return `${n} = ${base}^${exponente}`
+
+} */
