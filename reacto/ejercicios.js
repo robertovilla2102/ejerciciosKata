@@ -128,6 +128,7 @@ const searchPath = (graph, start, end, help = {}) => {
     }
 
     return false
+<<<<<<< HEAD
 }
 
 
@@ -237,3 +238,23 @@ const spyOn = (fn) => {
 
     return spy
 }
+=======
+} /* searchPath(graph, 'c', 'z') */
+
+
+/**reacto */
+const newDate = (date, minutes) => {
+    let arr = date.split(':')
+    let hora = arr[0]
+    let minutos = arr[1]
+    let nuevosMinutos = minutes + parseInt(minutos)
+    let nuevaHora = parseInt(hora) + Math.floor(nuevosMinutos / 60)
+
+    nuevaHora != 12 ? nuevaHora = nuevaHora % 12 : nuevaHora
+    nuevosMinutos = nuevosMinutos % 60
+    nuevaHora < 10 ? nuevaHora = `0${nuevaHora}` : nuevaHora
+    nuevosMinutos < 10 ? nuevosMinutos = `0${nuevosMinutos}` : nuevosMinutos
+
+    return `${nuevaHora}:${nuevosMinutos}`
+}
+>>>>>>> 012347067b3041ef3254d9721796bc3aeef8083b
