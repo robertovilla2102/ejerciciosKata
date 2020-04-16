@@ -241,3 +241,12 @@ function hydrate(s) {
   if (resu == 1) { return `${resu} glass of water` }
   return `${resu} glasses of water`
 }
+
+//Halving Sum
+const halvingSum = (n, resu = n, divisor = 2) => {
+  if (n / divisor < 1) return resu
+  resu += Math.floor(n / divisor)
+  divisor = divisor * 2
+  return halvingSum(n, resu, divisor)
+}
+

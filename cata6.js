@@ -234,3 +234,102 @@ const solution = (string) => {
   function solution(string) { return (string.replace(/([A-Z])/g, ' $1')) }
   //******************************************************************* */
 }
+
+
+//Decode the Morse code
+decodeMorse = function (morseCode) {
+  const morse = {
+    '      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-  ': 'SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.',
+    '...---...': 'SOS',
+    '.-': 'A',
+    '-...': 'B',
+    '-.-.': 'C',
+    '-..': 'D',
+    '.': 'E',
+    '..-.': 'F',
+    '--.': 'G',
+    '....': 'H',
+    '..': 'I',
+    '.---': 'J',
+    '-.-': 'K',
+    '.-.': 'L',
+    '--': 'M',
+    '-.': 'N',
+    '---': 'O',
+    '.--.': 'P',
+    '--.-': 'Q',
+    '.-.': 'R',
+    '...': 'S',
+    '-': 'T',
+    '..-': 'U',
+    '...-': 'V',
+    '.--': 'W',
+    "-.-": 'X',
+    '-.--': 'Y',
+    '--.': 'Z',
+
+    '-----': '0',
+    '.----': '1',
+    '..---': '2',
+    '.--': '3',
+    '....-': '4',
+    '.....': '5',
+    '-.': '6',
+    '--.': '7',
+    '---.': '8',
+    '----.': '9',
+  }
+  if (morse[morseCode]) return morse[morseCode]
+
+  let resu = ''
+  let letras = morseCode.split(' ')
+  console.log(morseCode);
+
+  letras.forEach(element => {
+    if (morse[element]) resu += morse[element]
+    else if (element == '') resu += ' '
+  });
+
+  return resu.trim().replace(/\s+/g, ' ')
+}
+
+
+//Validate my Password
+function validPass(password) {
+  let num = false
+  let letra = false
+  let random = false
+
+  if (password.length >= 3 && password.length <= 20) {
+    for (let i = 0; i < password.length; i++) {
+      if (password.charCodeAt(i) >= 48 && password.charCodeAt(i) <= 57) num = true
+      else if (password.charCodeAt(i) >= 65 && password.charCodeAt(i) <= 90) letra = true
+      else if (password.charCodeAt(i) >= 97 && password.charCodeAt(i) <= 122) letra = true
+      else { random = true }
+    }
+
+    if (num && letra && !random) { return 'VALID' }
+    else { return 'INVALID' }
+  }
+
+  return 'INVALID'
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

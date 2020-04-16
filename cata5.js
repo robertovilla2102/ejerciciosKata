@@ -196,15 +196,18 @@ function rot13(message) {
     //********************************************************* */
 }
 
-/* //What's a Perfect Power anyway?
-const isPP = (n, base = 1, exponente = 1) => {
-
-    for (let i = 0; i < n; i++) {
-        if (Math.pow(base, exponente) < n) { exponente++ }
-        else if (Math.pow(base, exponente) > n) { base++ }
-        else if (Math.pow(base, exponente) == n) break
+//Largest product in a series
+function greatestProduct(input) {
+    let resu = 0
+    for (let i = 0; i < input.length; i++) {
+        for (let j = 0; j < input.length; j++) {
+            if (input[j] && input[j + 1] && input[j + 2] && input[j + 3] && input[j + 4]) {
+                let parcial = parseInt(input[j]) * parseInt(input[j + 1]) * parseInt(input[j + 2]) * parseInt(input[j + 3]) * parseInt(input[j + 4])
+                if (parcial > resu) resu = parcial
+            }
+        }
     }
 
-    return `${n} = ${base}^${exponente}`
+    return resu
+}
 
-} */
